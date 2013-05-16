@@ -5,7 +5,7 @@
 
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /> 
-<title>Perhepäiväkirja</title>
+<title>Family Diary</title>
 
 </head>
 
@@ -18,13 +18,23 @@ function doSomething()
 }
 </script>
 
+<h1>Family Diary</h1>
+
 <form>
-<input type="text" name="aika" value=""><br>
+Message: <input type="text" name="viesti" value=""><br>
+Date:  <input type="text" name="pvm" value=""><br>
 </form>
+
 <table id="FamilyDiary" border="1">
-<table>
-<tr><td>Date</td><td>Message</td><td>Remove</td></tr>
-<tr><td></td><td></td><td></td></tr>
+<tr>	<td>Date</td>
+	<td>Message</td>
+	<td>Remove</td>
+</tr>
+<tr>	
+	<td id="date"></td>
+	<td id="msg"></td>
+	<td id="remove"></td>
+</tr>
 </table>
 </body>
 </html>
