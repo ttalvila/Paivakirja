@@ -15,22 +15,31 @@ function getDate() {
 </head>
 
 <body>
-<h1>Family Diary</h1>
-<form>
-Message: <input type="text" name="msg" value=""><br>
-Date:  <input type="text" name="mydate" value=""><br>
-<input type="button" name="save" value="Save message" onclick="">
-</form>
 
+<script>
+function doSomething()
+{
+
+}
+</script>
+
+<h1>Family Diary</h1>
+
+<form>
+Message: <input type="text" name="msg" value="">
+Date: <input type="text" name="mydate" value=""><br>
+<input type="button" name="save" value="Save message" onclick="doSomething()">
+</form>
+<hr/>
 <table id="FamilyDiary" border="1">
 <tr>	<td>Date</td>
 	<td>Message</td>
 	<td>Remove</td>
 </tr>
 <tr>	
-	<td></td>
-	<td></td>
-	<td></td>
+	<td id="date"></td>
+	<td id="msg"></td>
+	<td id="remove"></td>
 </tr>
 </table>
 </body>
