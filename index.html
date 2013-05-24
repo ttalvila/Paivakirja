@@ -46,9 +46,11 @@ input {
 
 <title>Family Diary</title>
 <script type="text/javascript">
+window.onload=getDate;
 function getDate() {
 	var t= new Date();
-	return t;
+	document.forms.myform.mydate.value=t.toLocaleDateString()+' klo '+
+	t.toLocaleTimeString();
 }
 </script>
 </head>
@@ -58,20 +60,39 @@ function getDate() {
 <script>
 function doSomething()
 {
-
+        var thedate = new Date();
+	var tbl=document.getElementById('FamilyDiary');
+	var tr=document.createElement('tr');
+	var td1=document.createElement('td');
+	var td2=document.createElement('td');
+	var td3=document.createElement('td');
+	var txt1=document.createTextNode(thedate);
+	var txt2=document.createTextNode(document.forms.myform.msg.value);
+	var txt3=document.createElement('input');
+	txt3.setAttribute('type','button');
+	txt3.setAttribute('value','Remove');
+	td1.appendChild(txt1);
+	td2.appendChild(txt2);
+	td3.appendChild(txt3);
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	tr.appendChild(td3);
+	tbl.appendChild(tr);
 }
 </script>
 
 <h1>Family Diary</h1>
 
+
 <form>
 What are you thinking? <br/>
 <input type="text" name="msg" value="" />
-<!--Date: <input type="text" name="mydate" value=""/>-->
 <br/>
 <input type="button" name="save" value="Save message" onclick="doSomething()"/>
 </form>
+
 <hr/>
+
 <table id="FamilyDiary" border="1">
 <tr>	<th>Date</th>
 	<th>Message</th>
@@ -80,7 +101,7 @@ What are you thinking? <br/>
 <tr>	
 	<td id="date"></td>
 	<td id="msg"></td>
-	<td id="remove"></td>
+	<td><input type="button" value="Remove"/></td>
 </tr>
 </table>
 </body>
