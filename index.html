@@ -60,7 +60,9 @@ function doSomething()
 	var td3=document.createElement('td');
 	var txt1=document.createTextNode(thedate);
 	var txt2=document.createTextNode(document.forms.myform.msg.value);
-	var txt3=document.createTextNode('Remove');
+	var txt3=document.createElement('input');
+	txt3.setAttribute('type','button');
+	txt3.setAttribute('value','Remove');
 	td1.appendChild(txt1);
 	td2.appendChild(txt2);
 	td3.appendChild(txt3);
@@ -86,7 +88,7 @@ Message: <input type="text" name="msg" value="">
 <tr>	
 	<td id="date"></td>
 	<td id="msg"></td>
-	<td id="remove"></td>
+	<td><input type="button" value="Remove"></td>
 </tr>
 </table>
 </body>
