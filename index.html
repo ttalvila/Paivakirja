@@ -1,92 +1,16 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" /> 
-
-<style>
-body
-{
-background-color:#d0e4fe;
-}
-h1
-{
-color:orange;
-text-align:center;
-}
-p
-{
-font-family:"Times New Roman";
-font-size:20px;
-}
-table, td, th
-{
-border:1px solid orange;
-}
-th
-{
-background-color:orange;
-color:white;
-}
-td
-{
-padding:15px;
-}
-input {
-    width:300px;
-    margin-bottom:5px;
-    line-height:18px;
-    padding:2px 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border:1px solid #CCC;
-}
-</style>
-
-<title>Family Diary</title>
-<script type="text/javascript">
-window.onload=getDate;
-function getDate() {
-	var t= new Date();
-	document.forms.myform.mydate.value=t.toLocaleDateString()+' klo '+
-	t.toLocaleTimeString();
-}
+<link rel="stylesheet" type="text/css" href="styles.css" />
+<script type="text/javascript" src="myscripts.js">
 </script>
+<title>Family Diary</title>
 </head>
 
 <body>
-
-<script>
-function doSomething()
-{
-        var thedate = new Date();
-	var tbl=document.getElementById('FamilyDiary');
-	var node=document.getElementById("FamilyDiary").childNodes[2];
-	var tr=document.createElement('tr');
-	var td1=document.createElement('td');
-	var td2=document.createElement('td');
-	var td3=document.createElement('td');
-	var txt1=document.createTextNode(thedate);
-	var txt2=document.createTextNode(document.forms.myform.msg.value);
-	var txt3=document.createElement('input');
-	txt3.setAttribute('type','button');
-	txt3.setAttribute('value','Remove');
-	td1.appendChild(txt1);
-	td2.appendChild(txt2);
-	td3.appendChild(txt3);
-	tr.appendChild(td1);
-	tr.appendChild(td2);
-	tr.appendChild(td3);
-	tbl.insertBefore(tr,node);
-	getDate();
-}
-</script>
-
 <h1>Family Diary</h1>
-
-
-<form>
+<form id="myform">
 What are you thinking? <br/>
 <input type="text" name="msg" value="" />
 <br/>
@@ -100,13 +24,6 @@ What are you thinking? <br/>
 	<th>Message</th>
 	<th>Remove</th>
 </tr>
-
-<tr>	
-	<td id="date"></td>
-	<td id="msg"></td>
-	<td><input type="button" value="Remove"/></td>
-</tr>
-
 </table>
 </body>
 </html>
