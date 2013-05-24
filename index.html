@@ -53,6 +53,7 @@ function getDate() {
 function doSomething()
 {
 	var tbl=document.getElementById('FamilyDiary');
+	var node=document.getElementById("FamilyDiary").childNodes[2];
 	var tr=document.createElement('tr');
 	var td1=document.createElement('td');
 	var td2=document.createElement('td');
@@ -68,7 +69,7 @@ function doSomething()
 	tr.appendChild(td1);
 	tr.appendChild(td2);
 	tr.appendChild(td3);
-	tbl.appendChild(tr);
+	tbl.insertBefore(tr,node);
 }
 </script>
 
@@ -84,11 +85,6 @@ Date: <input type="text" name="mydate" value="">
 <tr>	<th>Date</th>
 	<th>Message</th>
 	<th>Remove</th>
-</tr>
-<tr>	
-	<td id="date"></td>
-	<td id="msg"></td>
-	<td><input type="button" value="Remove"></td>
 </tr>
 </table>
 </body>
