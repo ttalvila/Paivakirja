@@ -1,6 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-      "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -34,6 +32,16 @@ td
 {
 padding:15px;
 }
+input {
+    width:300px;
+    margin-bottom:5px;
+    line-height:18px;
+    padding:2px 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border:1px solid #CCC;
+}
 </style>
 
 <title>Family Diary</title>
@@ -57,9 +65,11 @@ function doSomething()
 <h1>Family Diary</h1>
 
 <form>
-Message: <input type="text" name="msg" value="">
-Date: <input type="text" name="mydate" value=""><br>
-<input type="button" name="save" value="Save message" onclick="doSomething()">
+What are you thinking? <br/>
+<input type="text" name="msg" value="" />
+<!--Date: <input type="text" name="mydate" value=""/>-->
+<br/>
+<input type="button" name="save" value="Save message" onclick="doSomething()"/>
 </form>
 <hr/>
 <table id="FamilyDiary" border="1">
