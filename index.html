@@ -38,9 +38,11 @@ padding:15px;
 
 <title>Family Diary</title>
 <script type="text/javascript">
+window.onload=getDate;
 function getDate() {
 	var t= new Date();
-	return t;
+	document.forms.myform.mydate.value=t.toLocaleDateString()+' klo '+
+	t.toLocaleTimeString();
 }
 </script>
 </head>
@@ -50,15 +52,29 @@ function getDate() {
 <script>
 function doSomething()
 {
-
+	var tbl=document.getElementById('FamilyDiary');
+	var tr=document.createElement('tr');
+	var td1=document.createElement('td');
+	var td2=document.createElement('td');
+	var td3=document.createElement('td');
+	var txt1=document.createTextNode(document.forms.myform.mydate.value);
+	var txt2=document.createTextNode(document.forms.myform.msg.value);
+	var txt3=document.createTextNode('Remove');
+	td1.appendChild(txt1);
+	td2.appendChild(txt2);
+	td3.appendChild(txt3);
+	tr.appendChild(td1);
+	tr.appendChild(td2);
+	tr.appendChild(td3);
+	tbl.appendChild(tr);
 }
 </script>
 
 <h1>Family Diary</h1>
 
-<form>
+<form id="myform">
 Message: <input type="text" name="msg" value="">
-Date: <input type="text" name="mydate" value=""><br>
+Date: <input type="text" name="mydate" value="">
 <input type="button" name="save" value="Save message" onclick="doSomething()">
 </form>
 <hr/>
