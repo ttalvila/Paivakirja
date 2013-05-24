@@ -52,12 +52,13 @@ function getDate() {
 <script>
 function doSomething()
 {
+        var thedate = new Date();
 	var tbl=document.getElementById('FamilyDiary');
 	var tr=document.createElement('tr');
 	var td1=document.createElement('td');
 	var td2=document.createElement('td');
 	var td3=document.createElement('td');
-	var txt1=document.createTextNode(document.forms.myform.mydate.value);
+	var txt1=document.createTextNode(thedate);
 	var txt2=document.createTextNode(document.forms.myform.msg.value);
 	var txt3=document.createTextNode('Remove');
 	td1.appendChild(txt1);
@@ -74,7 +75,6 @@ function doSomething()
 
 <form id="myform">
 Message: <input type="text" name="msg" value="">
-Date: <input type="text" name="mydate" value="">
 <input type="button" name="save" value="Save message" onclick="doSomething()">
 </form>
 <hr/>
