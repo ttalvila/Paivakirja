@@ -1,4 +1,3 @@
-window.onload=getDate;
 function getDate() {
 	var t= new Date();
 	document.forms.myform.mydate.value=t.toLocaleDateString()+' klo '+
@@ -6,7 +5,8 @@ function getDate() {
 }
 function doSomething()
 {
-        var thedate = new Date();
+        var thedate = new Date().toLocaleDateString()+' klo '+
+	new Date().toLocaleTimeString();
 	var tbl=document.getElementById('FamilyDiary');
 	var node=document.getElementById("FamilyDiary").childNodes[2];
 	var tr=document.createElement('tr');
@@ -25,5 +25,4 @@ function doSomething()
 	tr.appendChild(td2);
 	tr.appendChild(td3);
 	tbl.insertBefore(tr,node);
-	getDate();
 }
