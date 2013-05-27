@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mangled date examples</title>
+    <script>
+     function prettyDate(now, time){
+        var date = new Date(time || ""),
+            diff = (((new Date(now)).getTime() - date.getTime()) / 1000),
+            day_diff = Math.floor(diff / 86400);
+        if ( isNaN(day_diff) || day_diff < 0 )
+        return;
+        if (day_diff <7) {
+            return days(day_diff);
+        } else if (day_diff <31) {
+            var weeks=Math.floor(day_diff/7);
+            return weeks+' weeks, '+days(day_diff%7);
+        } else if (day_diff<365) {
+            var months=Math.floor(day_diff/31);
+            var weeks=Math.floor((day_diff-months*31)/7);
+            var day_diff2=day_diff%7;
+            return months+' months, '+weeks+' weeks and'+days(day_diff2);
+        } else {
+            var years=Math.floor(day_diff/365);
+            var months=Math.floor((day_diff-years*365)/31);
+            var weeks=Math.floor((day_diff-years*365-months*31)/7);
+            var day_diff2=(day_diff-years*365-months*31-weeks*7)%7;
+            return years+' years, '+months+' months, '+weeks+' weeks and '+days(day_diff2);
+        }
+        function days(day_diff) {
+            return day_diff == 0 && (
+                diff < 60 && "just now" ||
+                diff < 120 && "1 minute ago" ||
+                diff < 3600 && Math.floor( diff / 60 ) +
+                " minutes ago" ||
+                diff < 7200 && "1 hour ago" ||
+                diff < 86400 && Math.floor( diff / 3600 ) +
+                " hours ago") ||
+                day_diff == 1 && "1 day ago" ||
+                day_diff < 7 && day_diff + " days ago" ||
+                day_diff < 31 && Math.ceil( day_diff / 7 ) +
+                " weeks ago";
+        }
+        }
+        window.onload = function() {
+            var links = document.getElementsByTagName("a");
+            for ( var i = 0; i < links.length; i++ ) {
+                if ( links[i].title ) {
+                    var date = prettyDate("Sun May 26 2013 21:05:02 GMT+0300 (Suomen normaaliaika)",
+                    links[i].title);
+                    if ( date ) {
+                        links[i].innerHTML = date;
+                    }
+                }
+            }
+        };
+    </script>    
+</head>
+
+<body>
+    <ul>
+    <li class="entry" id="post57">
+    <p>blah blah blah...</p>
+    <small class="extra">
+        Posted <span class="time">
+            <a href="/2008/01/blah/57/" title="Sun May 26 2010 21:05:00 GMT+0300">
+                <span>January 28th, 2008</span>
+            </a>
+        </span>
+        by <span class="author"><a href="/john/">John Resig</a></span>
+    </small>
+    </li>
+    <!-- more list items -->
+    </ul>
+</body>
+</html>
