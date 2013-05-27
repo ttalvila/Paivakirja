@@ -8,7 +8,7 @@ describe('.validateInput', function(){
   describe('.dates', function(){
     it('should return a date difference', function(){
       var date = 'Sun May 26 2013 21:05:02 GMT+0300 (Suomen normaaliaika)';
-      expect(prettyDate[date]).to.equal('foo');
+      expect(prettyDate[date]).to.equal('3 years, 0 months and 1 day ago');
       expect(prettyDate[new Date()]).to.equal(1);
     })
 })
