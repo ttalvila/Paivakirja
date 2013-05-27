@@ -15,3 +15,10 @@ describe('Function initPage', function(){
     assert.equal(document.getElementsByTagName('input')[0].value, 'Write a new message here');
   })
 })
+
+describe('Function getLocalDateTime', function(){
+  it('should contain string "klo"', function(){
+    assert.include(getLocalDateTime('FI'), 'klo');
+  })
+})
+
