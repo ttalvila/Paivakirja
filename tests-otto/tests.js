@@ -6,3 +6,12 @@ describe('Function validateInput', function(){
     assert.isFalse(validateInput("123"));
   })
 })
+
+describe('Function initPage', function(){
+  it('should set status=0', function(){
+    assert.equal(status, 0);
+  })
+  it('should set field value "Write a new message here"', function(){
+    assert.equal(document.getElementsByTagName('input')[0].value, 'Write a new message here');
+  })
+})
